@@ -1,0 +1,471 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"get",
+				"PUBLIC getText() \tString"
+			],
+			[
+				"getCur",
+				"PUBLIC getCurrentToken() \tsystem.JSONToken"
+			],
+			[
+				"create",
+				"PUBLIC createParser(String jsonString) \tsystem.JSONParser"
+			],
+			[
+				"Price",
+				"PriceBook2"
+			],
+			[
+				"PriceBook",
+				"PriceBookEntry"
+			],
+			[
+				"De",
+				"DeductionForEachKWpInKWh__c"
+			],
+			[
+				"Min",
+				"MinPVSize__c"
+			],
+			[
+				"free",
+				"freeElectricityCalc"
+			],
+			[
+				"writeBoo",
+				"PUBLIC writeBooleanField(String fieldName, Boolean b) \tvoid"
+			],
+			[
+				"batter",
+				"batteryRecommend"
+			],
+			[
+				"Type",
+				"Type__c"
+			],
+			[
+				"writeStart",
+				"PUBLIC writeStartObject() \tvoid"
+			],
+			[
+				"writeEnd",
+				"PUBLIC writeEndObject() \tvoid"
+			],
+			[
+				"Product",
+				"ProductSize__c"
+			],
+			[
+				"tari",
+				"tarifs"
+			],
+			[
+				"prodc",
+				"productList"
+			],
+			[
+				"Pro",
+				"ProductSize__c"
+			],
+			[
+				"writeStringName",
+				"PUBLIC writeStringField(String fieldName, String str) \tvoid"
+			],
+			[
+				"writeSrat",
+				"PUBLIC writeStartObject() \tvoid"
+			],
+			[
+				"writeArra",
+				"PUBLIC writeStartArray() \tvoid"
+			],
+			[
+				"sonnen",
+				"sonnenFlatTarif"
+			],
+			[
+				"json",
+				"jsonResponse"
+			],
+			[
+				"writeNumb",
+				"PUBLIC writeNumberField(String fieldName, Decimal d) \tvoid"
+			],
+			[
+				"writeS",
+				"PUBLIC writeStartObject() \tvoid"
+			],
+			[
+				"writeString",
+				"PUBLIC writeStringField(String fieldName, String str) \tvoid"
+			],
+			[
+				"write",
+				"PUBLIC writeStartObject() \tvoid"
+			],
+			[
+				"writeNumber",
+				"PUBLIC writeNumberField(String fieldName, Integer i) \tvoid"
+			],
+			[
+				"writeStrin",
+				"PUBLIC writeStringField(String fieldName, String str) \tvoid"
+			],
+			[
+				"sugger",
+				"suggestProduct3"
+			],
+			[
+				"Pricebook",
+				"PricebookEntry"
+			],
+			[
+				"PRice",
+				"PricebookEntry"
+			],
+			[
+				"PriceB",
+				"PriceBookEntry"
+			],
+			[
+				"obj",
+				"objId"
+			],
+			[
+				"pageBlockSectio",
+				"apex:pageBlockSection"
+			],
+			[
+				"data",
+				"apex:dataTable"
+			],
+			[
+				"out",
+				"apex:outputPanel"
+			],
+			[
+				"output",
+				"apex:outputPanel"
+			],
+			[
+				"pageBlock",
+				"apex:pageBlockSection"
+			],
+			[
+				"page",
+				"apex:pageBlock"
+			],
+			[
+				"standard",
+				"standardController\t(String)"
+			],
+			[
+				"Motivation",
+				"Motivation__c"
+			],
+			[
+				"Power",
+				"PowerPvPlant__c"
+			],
+			[
+				"Birt",
+				"Birthdate"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/classes/wirtschaftlichkeitsrechner3.cls",
+			"settings":
+			{
+				"buffer_size": 2076,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/classes/wirtschaftlichkeitsrechner2.cls",
+			"settings":
+			{
+				"buffer_size": 2138,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "insta",
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 666.0
+	},
+	"console":
+	{
+		"height": 239.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims",
+		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src",
+		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes"
+	],
+	"file_history":
+	[
+		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/suggestProduct6.cls",
+		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/Wirtschaftlichkeitsrechner_test.cls",
+		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/suggestProduct7.cls",
+		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/wirtschaftlichkeitsrechner3.cls",
+		"/C/Users/b.jarmolinski/Downloads/Jira_UpdateTicket.cls",
+		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/suggestProduct5.cls",
+		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/JSONResponse",
+		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/wirtschaftlichkeitsrechner2.cls",
+		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/suggestProduct4.cls",
+		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/createOpportunity.cls",
+		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/suggestProduct3.cls",
+		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/wirtschaftlichkeitsRechner.cls",
+		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/suggestProduct.cls",
+		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/suggestProduct2.cls",
+		"/C/Users/b.jarmolinski/Documents/getAgTsoDso/src/classes/AccountTriggerHandler.cls",
+		"/C/Users/b.jarmolinski/Documents/getAgTsoDso/src/triggers/TriggerAccount.trigger",
+		"/C/Users/b.jarmolinski/Downloads/AsyncOrtsinfov13x0StromgasGetagCo.cls",
+		"/C/Users/b.jarmolinski/Downloads/PartnerPayments_ConfirmBankAccount2.cls",
+		"/C/Users/b.jarmolinski/Documents/getAgTsoDso/src/classes/getTsoDsoBatch.cls",
+		"/C/Users/b.jarmolinski/Documents/getAgTsoDso/src/classes/getTsoDsoQueueable.cls",
+		"/C/Users/b.jarmolinski/Documents/getAgTsoDso/src/classes/AccountTriggerHandler2.cls",
+		"/C/Users/b.jarmolinski/Documents/getAgTsoDso/src/classes/getTsoDso2.cls",
+		"/C/Users/b.jarmolinski/Downloads/VerifyPaymentAccount.cls",
+		"/C/Users/b.jarmolinski/Documents/get AG callout/wsdl_getAG.xml",
+		"/C/Users/b.jarmolinski/Documents/get AG callout/getAGWSDL",
+		"/C/Users/b.jarmolinski/Documents/LeadNotifications/src/pages/MissingMandatoryFields2.page",
+		"/C/Users/b.jarmolinski/Documents/LeadNotifications/src/pages/MissingMandatoryFields3.page",
+		"/C/Users/b.jarmolinski/Documents/LeadNotifications/src/classes/LeadMandatoryFieldExtension2.cls",
+		"/C/Users/b.jarmolinski/Downloads/SingleRequestMock.cls",
+		"/C/Users/b.jarmolinski/Documents/LeadNotifications/src/pages/MissingMandatoryFields.page",
+		"/C/Users/b.jarmolinski/Documents/LeadNotifications/src/classes/LeadMandatoryFieldExtension.cls",
+		"/C/Users/b.jarmolinski/Documents/LeadNotifications/src/classes/LeadMandatoryFields_Controller.cls",
+		"/C/Users/b.jarmolinski/Documents/LeadNotifications/src/classes/LeadMandatoryFieldsExtension.cls",
+		"/C/Users/b.jarmolinski/Downloads/Scheduled_MatchContactsWithLeads.cls",
+		"/C/Users/b.jarmolinski/Downloads/MonthlyStatementsDataErase.cls",
+		"/C/Users/b.jarmolinski/Downloads/GetJiraComment.cls",
+		"/C/Users/b.jarmolinski/Downloads/LeadCreation_Test.cls",
+		"/C/Users/b.jarmolinski/Documents/AUContractLead/src/classes/AUContractLead.cls"
+	],
+	"find":
+	{
+		"height": 60.0
+	},
+	"find_in_files":
+	{
+		"height": 156.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"RecommendedBatteryCapac",
+			"\\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/classes/wirtschaftlichkeitsrechner3.cls",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2076,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2076,
+								2076
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 540.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/classes/wirtschaftlichkeitsrechner2.cls",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2138,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								460,
+								460
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 929.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 42.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.MavensMate-OutputPanel":
+	{
+		"height": 192.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "wirtschaftlichkeitsrechner.ims.sublime-project",
+	"replace":
+	{
+		"height": 78.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 572.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
