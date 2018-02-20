@@ -2,7 +2,7 @@ public with sharing class createOpportunity {
 	public static void createOpportunity(List<Id> prodIds, Id accountId) {
 		
 		Opportunity opp = new Opportunity();
-		opp.Name =  'New opportunity from Wirtschaftsrechner';
+		opp.Name =  'New opportunity from Wirtschaftslichkeitsrechner';
 		opp.AccountId = accountId;
 		opp.StageName = 'New';
 		opp.CloseDate = Date.today().addMonths(1);
