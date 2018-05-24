@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"opportunity",
+				"OpportunityId"
+			],
+			[
+				"customer",
+				"customer"
+			],
+			[
+				"Opportunity",
+				"OpportunityProduct"
+			],
+			[
+				"asset",
+				"assertEquals()"
+			],
+			[
+				"writeStringField",
+				"PUBLIC writeFieldName(String fieldName) \tvoid"
+			],
+			[
+				"gen",
+				"GeneratorsOutput__c"
+			],
+			[
+				"reque",
+				"PUBLIC requestURI"
+			],
+			[
+				"Rest",
+				"RestRequest\t[Standard Apex Class]"
+			],
+			[
+				"Opportuni",
+				"OpportunityLineItem"
+			],
+			[
 				"get",
 				"PUBLIC getText() \tString"
 			],
@@ -184,16 +220,14 @@
 			"settings":
 			{
 				"buffer_size": 2076,
-				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/classes/wirtschaftlichkeitsrechner2.cls",
+			"file": "src/classes/suggestProduct7.cls",
 			"settings":
 			{
-				"buffer_size": 2138,
-				"encoding": "UTF-8",
+				"buffer_size": 7046,
 				"line_ending": "Unix"
 			}
 		}
@@ -242,16 +276,24 @@
 	],
 	"file_history":
 	[
-		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/suggestProduct6.cls",
-		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/Wirtschaftlichkeitsrechner_test.cls",
+		"/C/Users/b.jarmolinski/Downloads/LumenazaContract (2).cls",
+		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/suggestProduct8.cls",
+		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/suggestProduct9.cls",
+		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/createOpportunityEndpoint.cls",
 		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/suggestProduct7.cls",
+		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/Wirtschaftlichkeitsrechner_test.cls",
 		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/wirtschaftlichkeitsrechner3.cls",
+		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/wirtschaftlichkeitsrechner2.cls",
+		"/C/Users/b.jarmolinski/Downloads/ScheduledMonthlyStateEraseTest.cls",
+		"/C/Users/b.jarmolinski/Downloads/MonthlyStateTest.cls",
+		"/C/Users/b.jarmolinski/Downloads/Scheduled_MonthlyStateFill (1).cls",
+		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/createOpportunity.cls",
+		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/.gitignore",
+		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/suggestProduct6.cls",
 		"/C/Users/b.jarmolinski/Downloads/Jira_UpdateTicket.cls",
 		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/suggestProduct5.cls",
 		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/JSONResponse",
-		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/wirtschaftlichkeitsrechner2.cls",
 		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/suggestProduct4.cls",
-		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/createOpportunity.cls",
 		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/suggestProduct3.cls",
 		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/wirtschaftlichkeitsRechner.cls",
 		"/C/Users/b.jarmolinski/Documents/wirtschaftlichkeitsrechner.ims/src/classes/suggestProduct.cls",
@@ -297,6 +339,15 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"pvErzeugung",
+			"free",
+			"free ",
+			"freeEle",
+			"free",
+			"freeEle",
+			"stromertrag",
+			"a",
+			"suggestProduct9",
 			"RecommendedBatteryCapac",
 			"\\n"
 		],
@@ -332,8 +383,8 @@
 						"selection":
 						[
 							[
-								2076,
-								2076
+								1979,
+								1990
 							]
 						],
 						"settings":
@@ -343,7 +394,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 540.0,
+						"translation.y": 715.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -351,29 +402,27 @@
 				},
 				{
 					"buffer": 1,
-					"file": "src/classes/wirtschaftlichkeitsrechner2.cls",
+					"file": "src/classes/suggestProduct7.cls",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2138,
+						"buffer_size": 7046,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								460,
-								460
+								2752,
+								2594
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/MavensMate/sublime/lang/Apex.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 929.0,
+						"translation.y": 891.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -463,7 +512,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 572.0,
+	"side_bar_width": 444.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

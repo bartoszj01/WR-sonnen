@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+        <members>Wirtschaftlichkeitsrechner_test</members>
         <members>createOpportunity</members>
+        <members>createOpportunityEndpoint</members>
         <members>suggestProduct7</members>
         <members>suggestProduct8</members>
         <members>suggestProduct9</members>

@@ -49,8 +49,8 @@ global with sharing class wirtschaftlichkeitsrechner2  {
         System.debug('Stromertrag: '+stromertrag);
     
         //call recommendation logic and get suggested products in JSON string format
-        suggestProduct9 sp = new suggestProduct9();
-        String jsonResponse = sp.suggestProduct9(consumption, maxLeistung, stromertrag, pvErzeugung);
+        suggestProduct7 sp = new suggestProduct7();
+        String jsonResponse = sp.suggestProduct7(consumption, maxLeistung, stromertrag, pvErzeugung);
         System.debug(jsonResponse);
         
         return jsonResponse;

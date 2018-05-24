@@ -1,9 +1,12 @@
 /*
-- Author: Bartosz Jarmolinski
+* Author: Bartosz Jarmolinski
 
-- The class includes product recommendation logic - sonnenFlat contract and matching battery
-- parameters: consumption (per year), maxLeistung (peak power of the PV which can be installed), stromertag (yearly electricity production), 
-- the method returns JSON string which contains recommended electricity contract together with battery as well as other available products
+* The class includes product recommendation logic - sonnenFlat contract and matching battery
+* parameters: consumption (per year), maxLeistung (peak power of the PV which can be installed), stromertag (yearly electricity production), 
+* the method returns JSON string which contains recommended electricity contract together with battery as well as other available products
+*
+* Update 20/02/2018
+* Added query for field MinYearlyEnergyProduction__c, modified energy allowance calculation to include MinYearlyEnergyProduction in the calculation
 */
 
 public with sharing class suggestProduct7 {
@@ -30,7 +33,7 @@ public with sharing class suggestProduct7 {
 		productList = [SELECT id, Name, Product2.Name, UnitPrice, Product2.AmountFreeEnergy__c, Product2.MaxConsumption__c, Product2.MinConsumption__c,
 						Product2.ContractRunningTime__c, Product2.ContractRenewalTime__c, ElectricityPrice__c, ElectricityPrice2000__c, Product2.Type__c, 
 						Product2.ProductSize__c, Product2.DeductionForEachKWpInKWh__c, Product2.MinBatteryCapacity__c, Product2.MinProduction__c, Product2.MinPVSize__c, 
-						RecommendedMaximalConsumption__c, RecommendedMinimalConsumption__c, MaximalConsumption__c, RecommendedBatteryCapacity2__c
+						RecommendedMaximalConsumption__c, RecommendedMinimalConsumption__c, MaximalConsumption__c, RecommendedBatteryCapacity2__c, MinYearlyEnergyProduction__c 
 						FROM PricebookEntry WHERE Pricebook2.Name = 'sonnen Sales DE' AND
 						(Product2.Type__c != 'Electricity contract' OR MaximalConsumption__c >= :consumption) AND
 						(Product2.Type__c = 'Electricity contract' OR Product2.Type__c = 'Battery') AND IsActive = true ORDER BY Product2.Type__c DESC];
@@ -60,7 +63,13 @@ public with sharing class suggestProduct7 {
 			batteryRecommend.put(pbe.Name, batterySize.get(pbe.RecommendedBatteryCapacity2__c));
 		}
 		System.debug('batteryRecommend: '+batteryRecommend);
-		
+
+		//get custom metadata type WRAllowance where parameters for calculating free enegry allowance are stored
+		List<WRAllowance__mdt> wr = [SELECT Label, maxOutput__c FROM WRAllowance__mdt];
+		Map<String, Decimal> allowanceMap = new Map<String, Decimal>();
+		for(WRAllowance__mdt a : wr) {
+			allowanceMap.put(a.Label, a.maxOutput__c);
+		} 
 		//contruct JSON string with the recommended products and other products which will be returned as response
 		JSONGenerator gen = JSON.createGenerator(true);
         gen.writeStartObject();
@@ -80,7 +89,13 @@ public with sharing class suggestProduct7 {
         	gen.writeNumberField('ContractRenewalTime', pbe.Product2.ContractRenewalTime__c);
         	gen.writeNumberField('CommunityChargePerMonth', pbe.UnitPrice);
         	gen.writeStringField('ProductType', pbe.Product2.Type__c);
-        	gen.writeNumberField('FreeElectricitySupply', pbe.Product2.AmountFreeEnergy__c);
+        	if(maxLeistung < allowanceMap.get(pbe.Name) && stromertrag < pbe.MinYearlyEnergyProduction__c){
+        		Decimal allowance = pbe.Product2.AmountFreeEnergy__c - (allowanceMap.get(pbe.Name) - maxLeistung) * 625;
+        		gen.writeNumberField('FreeElectricitySupply', allowance);
+        	}
+        	else {
+        		gen.writeNumberField('FreeElectricitySupply', pbe.Product2.AmountFreeEnergy__c);
+        	}
         	gen.writeNumberField('ElectricityPrice', pbe.ElectricityPrice__c);
         	gen.writeNumberField('ElectricityPrice2000', pbe.ElectricityPrice2000__c);
         	
