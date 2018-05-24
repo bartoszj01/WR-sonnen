@@ -1,5 +1,5 @@
-@RestResource(urlMapping='/createOpp')
-global without sharing class createOpportunityEndpoint {
+@RestResource(urlMapping='/createOpp/v2/*')
+global without sharing class createOpportunityEndpointv2 {
 
 	@HttpPost
 	global static Opportunity createOpportunityEndpoint() {
@@ -23,7 +23,6 @@ global without sharing class createOpportunityEndpoint {
 								GeneratorsOutput__c FROM Opportunity WHERE Id = :opp.opportunityId];
 		}
 		
-		opt.AccountId = (Id) opp.accountId;
 		opt.ProposedSBC__c = (Id) opp.partnerId;
 		opt.Name = wr.OpportunityName__c;
 		opt.RecordTypeId = recordTypeId;
@@ -34,7 +33,22 @@ global without sharing class createOpportunityEndpoint {
 		opt.EnergyConsumption__c = (Decimal) opp.energyConsumption;
 		opt.RoofOrientation__c = (String) opp.roofOrientation;
 		opt.GeneratorsOutput__c = (Decimal) opp.generatorsOutput;
-
+		opt.FirstName__c = (String) opp.firstName;
+		opt.LastName__c = (String) opp.lastName;
+		opt.Company__c = (String) opp.company;
+		opt.Email__c = (String) opp.email;
+		opt.BillingCity__c = (String) opp.city;
+		opt.BillingPostalCode__c = (String) opp.postCode;
+		opt.BillingStreet__c = (String) opp.street;
+		opt.Country__c = (String) opp.country;
+		
+		List<Opportunity> oppList = new List<Opportunity>();
+		oppList.add(opt);
+		DuplicateCheckHandler2 dch = new DuplicateCheckHandler2(oppList);
+		opt.AccountId = dch.handleObjects().get(opt.Id);
+		
+		System.debug(opt);
+		System.debug(opt.AccountId);
 		try{
 			upsert opt;
 		}
@@ -76,6 +90,14 @@ global without sharing class createOpportunityEndpoint {
 		String powerPvPlant;
 		String roofOrientation;
 		Decimal generatorsOutput;
-		List<PriceBookEntry> pbeIds;	
+		List<PriceBookEntry> pbeIds;
+		String firstName;
+		String lastName;
+		String company;
+		String email;
+		String city;
+		String postCode;
+		String street;
+		String country;
 	}
 }

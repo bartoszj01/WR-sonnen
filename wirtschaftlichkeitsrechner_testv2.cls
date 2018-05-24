@@ -1,7 +1,6 @@
 @isTest
-private class Wirtschaftlichkeitsrechner_test {
-	
-	@testSetup static void createData() {
+public with sharing class wirtschaftlichkeitsrechner_testv2 {
+    	@testSetup static void createData() {
 		
 		List<Account> accounts = new List<Account>();
 		List<Contact> contacts = new List<Contact>();
@@ -174,6 +173,7 @@ private class Wirtschaftlichkeitsrechner_test {
 		pbe.RecommendedMinimalConsumption__c = 0;
 		pbe.RecommendedMaximalConsumption__c = 4250;
 		pbe.RecommendedBatteryCapacity2__c = '6 kWh';
+		pbe.MinYearlyEnergyProduction__c =4400;
 		pbeList.add(pbe);
 
 		PriceBookEntry pbe1 = new PriceBookEntry();
@@ -188,6 +188,7 @@ private class Wirtschaftlichkeitsrechner_test {
 		pbe1.RecommendedMinimalConsumption__c = 6751;
 		pbe1.RecommendedMaximalConsumption__c = 100000;
 		pbe1.RecommendedBatteryCapacity2__c = '12 kWh';
+		pbe1.MinYearlyEnergyProduction__c = 7600;
 		pbeList.add(pbe1);
 
 		PriceBookEntry pbe2 = new PriceBookEntry();
@@ -212,15 +213,13 @@ private class Wirtschaftlichkeitsrechner_test {
 
 	@isTest static void test_method_one() {
 
-
-
 		// test @RestResource endpoint
 		String jsonMsg = '{ "accountId": "0019E00000TSwJr", "electricityConsumption": 7900, "maxLeistung": 10.5, "PVErzeugung": 900.3, "Stromertrag": 8000.5 } ';
 
 		RestRequest req = new RestRequest();
 		RestResponse res = new RestResponse();
 
-		req.requestURI = 'https://sonnen--ims.cs88.my.salesforce.com/apexrest/calculator2';
+		req.requestURI = 'https://sonnen--ims.cs88.my.salesforce.com/services/apexrest/calculator2';
 		req.httpMethod = 'POST';
 		req.requestBody = Blob.valueOf(jsonMsg);
 
@@ -274,6 +273,15 @@ private class Wirtschaftlichkeitsrechner_test {
 		gen.writeNumberField('UnitPrice', pbe3.UnitPrice);
 		gen.writeEndObject();
 		gen.writeEndArray();
+		gen.writeStringField('firstName', 'customer2');
+		gen.writeStringField('lastName', 'lastName2');
+		gen.writeStringField('company', 'secret service');
+		gen.writeStringField('email', 'a.mcgyver@gmail.com');
+		gen.writeStringField('city', 'Berlin');
+		gen.writeStringField('postCode', '12456');
+		gen.writeStringField('street', 'Am reidbach');
+		gen.writeStringField('country', 'USA');
+		gen.writeEndObject();
 
 		String jsonOpp = gen.getAsString();
 		System.debug(jsonOpp);
@@ -281,7 +289,7 @@ private class Wirtschaftlichkeitsrechner_test {
 		RestRequest req2 = new RestRequest();
 		RestResponse res2 = new RestResponse();
 
-		req2.requestURI = Url.getSalesforceBaseUrl().toExternalForm() + '/apexrest/createOpp';
+		req2.requestURI = Url.getSalesforceBaseUrl().toExternalForm() + '/services/apexrest/createOpp/v2';
 		req2.httpMethod = 'POST';
 		req2.requestBody = Blob.valueOf(jsonOpp);
 
@@ -291,7 +299,7 @@ private class Wirtschaftlichkeitsrechner_test {
 		//List<Account> accountIds = [SELECT Id FROM Account];
 		//Map<Id,Account> accounts = new Map<Id,Account>([SELECT Id, (SELECT Id FROM Contacts ORDER BY CreatedDate LIMIT 1) FROM Account WHERE Id IN :accountIds]);
 		//System.debug('accountsWR: '+accounts.get(accountIds[0].Id).Contacts);
-		Opportunity o = createOpportunityEndpoint.createOpportunityEndpoint();
+		Opportunity o = createOpportunityEndpointv2.createOpportunityEndpoint();
 		System.debug(o);
 
 		System.assertEquals(2, [SELECT Id FROM OpportunityLineItem WHERE OpportunityId =:o.Id].size());
@@ -330,6 +338,15 @@ private class Wirtschaftlichkeitsrechner_test {
 		gen2.writeNumberField('UnitPrice', pbe3.UnitPrice);
 		gen2.writeEndObject();
 		gen2.writeEndArray();
+		gen2.writeStringField('firstName', 'customer1');
+		gen2.writeStringField('lastName', 'lastName');
+		gen2.writeNullField('company');
+		gen2.writeStringField('email', 'a.mcgyver@gmail.com');
+		gen2.writeStringField('city', 'Wipo');
+		gen2.writeStringField('postCode', '12456');
+		gen2.writeStringField('street', 'Am reidbach');
+		gen2.writeStringField('country', 'USA');
+		gen2.writeEndObject();
 
 		String jsonOpp2 = gen2.getAsString();
 		System.debug(jsonOpp2);
@@ -337,18 +354,74 @@ private class Wirtschaftlichkeitsrechner_test {
 		RestRequest req3 = new RestRequest();
 		RestResponse res3 = new RestResponse();
 
-		req3.requestURI = Url.getSalesforceBaseUrl().toExternalForm() + '/apexrest/createOpp';
+		req3.requestURI = Url.getSalesforceBaseUrl().toExternalForm() + '/services/apexrest/createOpp/v2';
 		req3.httpMethod = 'POST';
 		req3.requestBody = Blob.valueOf(jsonOpp2);
 
 		RestContext.request = req3;
 		RestContext.response = res3;
 
-		Opportunity o = createOpportunityEndpoint.createOpportunityEndpoint();
+		Opportunity o = createOpportunityEndpointv2.createOpportunityEndpoint();
 		System.debug(o);
 		
 		System.assertEquals(2, [SELECT Id FROM OpportunityLineItem WHERE OpportunityId =:oppId].size());
 		System.assertEquals(2000, [SELECT Id, EnergyConsumption__c FROM Opportunity WHERE Id =:oppId].EnergyConsumption__c);
 		Test.stopTest();
+	}
+
+	@isTest static void test_method_four() {
+		// testing null response if the entry criteria are not fulfilled
+		// test @RestResource endpoint
+		String jsonMsg = '{ "accountId": "0019E00000TSwJr", "electricityConsumption": 4000, "maxLeistung": 2.5, "PVErzeugung": 900.3, "Stromertrag": 2300 } ';
+
+		RestRequest req = new RestRequest();
+		RestResponse res = new RestResponse();
+
+		req.requestURI = 'https://sonnen--ims.cs88.my.salesforce.com/services/apexrest/calculator2';
+		req.httpMethod = 'POST';
+		req.requestBody = Blob.valueOf(jsonMsg);
+
+		RestContext.request = req;
+		RestContext.response = res;
+
+		String jsonString = wirtschaftlichkeitsrechner2.method1();
+
+		Map<String, Object> m = (Map<String, Object>) JSON.deserializeUntyped(jsonString);
+
+		System.debug(m);
+		System.assertEquals('KWp must be greater than 3.0 and electricity production must be greater than 2400 KWh', (String) m.get('Error') );
+	}
+
+	@isTest static void test_method_five() {
+		// testing calculation of free allowance if applicable (Freistrommenge)
+		// test @RestResource endpoint
+		String jsonMsg = '{ "accountId": "0019E00000TSwJr", "electricityConsumption": 6000, "maxLeistung": 3.5, "PVErzeugung": 900.3, "Stromertrag": 5000 } ';
+
+		RestRequest req = new RestRequest();
+		RestResponse res = new RestResponse();
+
+		req.requestURI = Url.getSalesforceBaseUrl().toExternalForm() + '/services/apexrest/calculator2';
+		req.httpMethod = 'POST';
+		req.requestBody = Blob.valueOf(jsonMsg);
+
+		RestContext.request = req;
+		RestContext.response = res;
+
+		String jsonString = wirtschaftlichkeitsrechner2.method1();
+
+		Map<String, Object> m = (Map<String, Object>) JSON.deserializeUntyped(jsonString);
+
+		Map<String, Object> mParsed; // the map will hold part of the JSON response which is related to recommended products only
+		//where key is field name e.g. Name, Battery etc.
+
+		List<Object> mlist = (List<Object>)m.get('RecommendedProducts');
+
+		for(Object result : mlist) {
+			mParsed = (Map<String, Object>)result;
+		}
+		System.debug(mParsed);
+		System.assertEquals('sonnenFlat 8000', (String)mParsed.get('Name'));
+		System.assertEquals(5969, (Decimal) mParsed.get('FreeElectricitySupply'));
+
 	}
 }
