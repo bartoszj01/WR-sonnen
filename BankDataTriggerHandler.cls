@@ -5,6 +5,9 @@
  *
  * Changelog
  * ---------
+ * v1.3.1 (2018-06-14)
+ * By Bartosz Jarmolinski
+ * fixing enrichBankInfo method - fixed list passed to the queueable class - should be validated list instead of trigger.new 
  *
  * v1.3.0 (2018-02-28)
  * - @Author: Bartosz Jarmolinski
